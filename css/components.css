@@ -1,0 +1,6 @@
+header#header,
+footer#footer {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+}
