@@ -1,3 +1,9 @@
+html {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
 header#header,
 footer#footer {
     background-color: var(--bg-primary);
