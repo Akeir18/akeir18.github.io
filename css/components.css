@@ -2,6 +2,7 @@ html {
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
+    font-family: Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
 header#header,
