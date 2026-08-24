@@ -5,6 +5,8 @@
     --text-primary: #111;
     --text-secondary: #BBB;
 
+    --quote-font-size: 1.5rem;
+
     --header-height: 6rem;
     --footer-height: 3rem;
 }

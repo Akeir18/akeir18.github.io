@@ -44,3 +44,10 @@ section {
         padding: 0.5rem 1rem;
     }
 }
+
+.quote {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: var(--quote-font-size);
+}
