@@ -5,6 +5,10 @@
     font-family: Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
+html {
+    background-color: var(--bg-secondary);
+}
+
 a {
     text-decoration: none;
 }
