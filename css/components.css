@@ -10,9 +10,13 @@ footer#footer {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
 }
 
 header#header {
+    height: var(--header-height);
+
     div:first-child {
         display: flex;
         flex-direction: column; 
@@ -23,7 +27,13 @@ header#header {
     }
 }
 
+footer#footer {
+    height: var(--footer-height);
+}
+
 section {
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+
     p {
         padding: 0.5rem 1rem;
     }

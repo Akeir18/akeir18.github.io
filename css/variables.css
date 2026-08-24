@@ -4,4 +4,7 @@
 
     --text-primary: #111;
     --text-secondary: #BBB;
+
+    --header-height: 6rem;
+    --footer-height: 3rem;
 }
