@@ -4,6 +4,7 @@ footer#footer {
     color: var(--text-secondary);
     padding: 0.5rem 1rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
     a {
@@ -27,7 +28,6 @@ header#header {
 footer#footer {
     height: var(--footer-height);
     display: flex;
-    justify-content: space-between;
 
     nav a:not(:first-child)::before {
         content: "•";
