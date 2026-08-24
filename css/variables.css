@@ -1,6 +1,8 @@
 :root {
-    --bg-primary: #AAA;
+    --bg-primary: #F2F0EF;
     --bg-secondary: #333;
+    
+    --accent: #335C46;
 
     --text-primary: #111;
     --text-secondary: #BBB;

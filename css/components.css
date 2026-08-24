@@ -11,8 +11,8 @@ a {
 
 header#header,
 footer#footer {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
@@ -48,6 +48,9 @@ footer#footer {
 }
 
 section {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
     display: flex;
     justify-content: center;
