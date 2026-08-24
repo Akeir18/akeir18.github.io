@@ -11,3 +11,14 @@ footer#footer {
     color: var(--text-primary);
     padding: 0.5rem 1rem;
 }
+
+header#header {
+    div:first-child {
+        display: flex;
+        flex-direction: column; 
+
+        p {
+            text-transform: uppercase;
+        }
+    }
+}
