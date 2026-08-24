@@ -29,6 +29,8 @@ header#header {
 
 footer#footer {
     height: var(--footer-height);
+    display: flex;
+    justify-content: space-between;
 }
 
 section {
