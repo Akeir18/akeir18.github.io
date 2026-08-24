@@ -5,6 +5,10 @@ html {
     font-family: Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 header#header,
 footer#footer {
     background-color: var(--bg-primary);
@@ -12,6 +16,10 @@ footer#footer {
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
+
+    a {
+        color: var(--text-secondary)
+    }
 }
 
 header#header {
@@ -31,6 +39,12 @@ footer#footer {
     height: var(--footer-height);
     display: flex;
     justify-content: space-between;
+
+    nav a:not(:first-child)::before {
+        content: "•";
+        margin: 0 10px;
+        opacity: 0.5;
+    }
 }
 
 section {
