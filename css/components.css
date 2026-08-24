@@ -1,14 +1,3 @@
-html {
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    font-family: Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-}
-
-a {
-    text-decoration: none;
-}
-
 header#header,
 footer#footer {
     background-color: var(--bg-secondary);
@@ -44,23 +33,6 @@ footer#footer {
         content: "•";
         margin: 0 10px;
         opacity: 0.5;
-    }
-}
-
-section {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-
-    min-height: calc(100vh - var(--header-height) - var(--footer-height));
-    display: flex;
-    justify-content: center;
-
-    div {
-        width: 70%;
-    }
-
-    p {
-        padding: 0.5rem 1rem;
     }
 }
 
