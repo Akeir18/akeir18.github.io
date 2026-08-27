@@ -2,12 +2,17 @@ const commands = [
 	{
 		command: "whoami",
 		output: [
-			"Christian Jiménez Roche",
-			"Full Stack Developer"
+			"Christian Jiménez Roche"
 		]
 	},
+    {
+        command: "echo $ROLE",
+        output: [
+            "Full Stack Developer"
+        ]
+    },
 	{
-		command: "stack",
+		command: "echo $STACK",
 		output: [
 			"frontend  → HTML · CSS · JavaScript · React · Angular · Vue",
 			"backend   → PHP · Laravel",
@@ -16,11 +21,12 @@ const commands = [
 		]
 	},
 	{
-		command: "experience",
+		command: "cat about-me.txt",
 		output: [
 			"Building web applications",
 			"Designing APIs",
-			"Working with databases"
+			"Working with databases",
+			"Coffee powered developer",
 		]
 	},
     {
