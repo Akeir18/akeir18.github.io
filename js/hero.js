@@ -72,10 +72,7 @@ function renderCompletedCommand(data) {
                 <span class="prompt">$</span>
                 ${escapeHTML(data.command)}
             </div>
-
-            <div class="output">
-                ${output}
-            </div>
+            <div class="output">${output}</div>
         </div>
     `;
 }
