@@ -2,4 +2,30 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+html {
+    background-color: var(--bg-secondary);
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    display: flex;
+    justify-content: center;
+
+    > div {
+        width: 70%;
+    }
+
+    p {
+        padding: 0.5rem 1rem;
+    }
 }
