@@ -144,6 +144,7 @@ function renderTerminal(progress) {
     if (currentIndex >= commands.length) {
         currentIndex = commands.length;
         localProgress = 1;
+        document.getElementById("sobre-mi").scrollIntoView();
     }
 
     let html = "";
@@ -171,8 +172,31 @@ function update() {
     ticking = false;
 }
 
+let terminalResetting = false;
 
+function checkTerminalReentry () {
+    if (scrollingDown || terminalResetting) return;
+
+    const rect = section.getBoundingClientRect();
+    if (
+        rect.bottom < window.scrollY
+    ) {
+        terminalResetting = true;
+        section.scrollIntoView();
+        requestAnimationFrame(() => {
+            terminalResetting = false;
+        })
+    }
+}
+
+let lastScrollY = window.scrollY;
+let scrollingDown = true;
 window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+    scrollingDown = currentScrollY > lastScrollY;
+    lastScrollY = currentScrollY;
+
+    checkTerminalReentry();
     if (!ticking) {
         window.requestAnimationFrame( update );
         ticking = true;
