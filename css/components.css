@@ -32,11 +32,32 @@ footer#footer {
     height: var(--footer-height);
     display: flex;
     bottom: 0px;
+    flex-wrap: wrap;
+    gap: var(--gap);
+
+    div {
+        width: 100%;
+        p {
+            text-align: center;
+        }
+    }
 
     nav a:not(:first-child)::before {
         content: "•";
         margin: 0 10px;
         opacity: 0.5;
+    }
+
+    div:first-child {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap);
+        p {
+            order: 2;
+        }
+        nav {
+            order: 1;
+        }
     }
 }
 
@@ -151,4 +172,12 @@ footer#footer {
     50% {
         opacity: 0;
     }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+}
+
+/* PC */
+@media screen and (min-width: 1440px) {
 }
