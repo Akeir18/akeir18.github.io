@@ -8,7 +8,7 @@
     --text-primary: #111;
     --text-secondary: #bbb;
 
-    --quote-font-size: 1.5rem;
+    --quote-font-size: 1.2rem;
 
     --header-height: 6rem;
     --footer-height: 7rem;
@@ -20,6 +20,8 @@
 @media screen and (min-width: 768px) {
     :root {
         --footer-height: 6rem;
+
+        --quote-font-size: 1.5rem;
 
         --gap: 1rem;
     }
