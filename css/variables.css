@@ -1,14 +1,35 @@
+/* Phone */
 :root {
-    --bg-primary: #F2F0EF;
+    --bg-primary: #f2f0ef;
     --bg-secondary: #333;
-    
-    --accent: #335C46;
+
+    --accent: #335c46;
 
     --text-primary: #111;
-    --text-secondary: #BBB;
+    --text-secondary: #bbb;
 
-    --quote-font-size: 1.5rem;
+    --quote-font-size: 1.2rem;
 
     --header-height: 6rem;
-    --footer-height: 3rem;
+    --footer-height: 7rem;
+
+    --gap: 0.5rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+    :root {
+        --footer-height: 6rem;
+
+        --quote-font-size: 1.5rem;
+
+        --gap: 1rem;
+    }
+}
+
+/* PC */
+@media screen and (min-width: 1440px) {
+    :root {
+        --gap: 2rem;
+    }
 }
