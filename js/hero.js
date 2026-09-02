@@ -1,48 +1,39 @@
 const commands = [
-	{
-		command: "whoami",
-		output: [
-			"Christian Jiménez Roche"
-		]
-	},
+    {
+        command: "whoami",
+        output: ["Christian Jiménez Roche"],
+    },
     {
         command: "echo $ROLE",
-        output: [
-            "Full Stack Developer"
-        ]
+        output: ["Full Stack Developer"],
     },
-	{
-		command: "echo $STACK",
-		output: [
-			"frontend  → HTML · CSS · JavaScript · React · Angular · Vue",
-			"backend   → PHP · Laravel",
-			"database  → MySQL · SQLServer · PostgreSQL · MongoDB",
-			"other     → Git · Docker · Linux"
-		]
-	},
-	{
-		command: "cat about-me.txt",
-		output: [
-			"Building web applications",
-			"Designing APIs",
-			"Working with databases",
-			"Coffee powered developer",
-		]
-	},
+    {
+        command: "echo $STACK",
+        output: [
+            "frontend  → HTML · CSS · JavaScript · React · Angular · Vue",
+            "backend   → PHP · Laravel",
+            "database  → MySQL · SQLServer · PostgreSQL · MongoDB",
+            "other     → Git · Docker · Linux",
+        ],
+    },
+    {
+        command: "cat about-me.txt",
+        output: [
+            "Building web applications",
+            "Designing APIs",
+            "Working with databases",
+            "Coffee powered developer",
+        ],
+    },
     {
         command: "status",
-        output: [
-            "Ready to build something great_"
-        ]
+        output: ["Ready to build something great_"],
     },
     {
         command: "exit",
-        output: [
-            "Goodbye!"
-        ]
-    }
+        output: ["Goodbye!"],
+    },
 ];
-
 
 const section = document.querySelector(".terminal-section");
 const terminal = document.querySelector("#terminal-content");
@@ -64,7 +55,7 @@ function escapeHTML(text) {
 }
 
 function renderCompletedCommand(data) {
-    const output = data.output .map(line => escapeHTML(line)) .join("<br>");
+    const output = data.output.map((line) => escapeHTML(line)).join("<br>");
 
     return `
         <div class="command">
@@ -77,7 +68,7 @@ function renderCompletedCommand(data) {
     `;
 }
 
-function renderCurrentCommand( data, progress ) {
+function renderCurrentCommand(data, progress) {
     /*
     Primera mitad:
     escribir comando
@@ -87,33 +78,31 @@ function renderCurrentCommand( data, progress ) {
     */
 
     const commandProgress = Math.min(progress * 2, 1);
-    const outputProgress = Math.max( (progress - 0.5) * 2, 0 );
+    const outputProgress = Math.max((progress - 0.5) * 2, 0);
 
-    const commandLength = Math.floor( data.command.length * commandProgress );
-    const visibleCommand = data.command.slice( 0, commandLength );
+    const commandLength = Math.floor(data.command.length * commandProgress);
+    const visibleCommand = data.command.slice(0, commandLength);
 
     const outputText = data.output.join("\n");
-    const outputLength = Math.floor( outputText.length * outputProgress );
-    const visibleOutput = outputText.slice( 0, outputLength );
-    const formattedOutput = escapeHTML(visibleOutput) .replace(/\n/g, "<br>");
+    const outputLength = Math.floor(outputText.length * outputProgress);
+    const visibleOutput = outputText.slice(0, outputLength);
+    const formattedOutput = escapeHTML(visibleOutput).replace(/\n/g, "<br>");
 
     const showCursor = progress < 1;
-
 
     return `
         <div class="command">
             <div class="command-line">
                 <span class="prompt">$</span>
                     ${escapeHTML(visibleCommand)}
-                ${ showCursor ? '<span class="cursor">▌</span>' : "" }
+                ${showCursor ? '<span class="cursor">▌</span>' : ""}
             </div>
-            ${ outputLength > 0 ? ` <div class="output"> ${formattedOutput} </div> ` : "" }
+            ${outputLength > 0 ? ` <div class="output"> ${formattedOutput} </div> ` : ""}
         </div>
     `;
 }
 
 function renderTerminal(progress) {
-
     /*
     Convertimos:
         0 → 1
@@ -121,10 +110,9 @@ function renderTerminal(progress) {
         0 → número de comandos
     */
 
-  const position = progress * commands.length;
+    const position = progress * commands.length;
 
     let currentIndex = Math.floor(position);
-
 
     /*
     Progreso dentro del comando actual
@@ -141,22 +129,23 @@ function renderTerminal(progress) {
     al final de todo.
     */
 
-    if (currentIndex >= commands.length) {
-        currentIndex = commands.length;
-        localProgress = 1;
-        document.getElementById("sobre-mi").scrollIntoView();
-    }
+    // console.log(progress);
+    // if (currentIndex >= commands.length) {
+    //     currentIndex = commands.length;
+    //     localProgress = 1;
+    //     console.log("entra");
+    //     document.getElementById("sobre-mi").scrollIntoView();
+    // }
 
     let html = "";
 
-    for ( let i = 0; i < currentIndex; i++ ) {
-        html += renderCompletedCommand( commands[i] );
+    for (let i = 0; i < currentIndex; i++) {
+        html += renderCompletedCommand(commands[i]);
     }
 
-    if ( currentIndex < commands.length ) {
-        html += renderCurrentCommand( commands[currentIndex], localProgress );
+    if (currentIndex < commands.length) {
+        html += renderCurrentCommand(commands[currentIndex], localProgress);
     }
-
 
     terminal.innerHTML = html;
 
@@ -172,38 +161,31 @@ function update() {
     ticking = false;
 }
 
-let terminalResetting = false;
-
-function checkTerminalReentry () {
-    if (scrollingDown || terminalResetting) return;
-
-    const rect = section.getBoundingClientRect();
-    if (
-        rect.bottom < window.scrollY
-    ) {
-        terminalResetting = true;
-        section.scrollIntoView();
-        requestAnimationFrame(() => {
-            terminalResetting = false;
-        })
+const observer = new IntersectionObserver((entries) => {
+    const visible = entries[0].isIntersecting;
+    if (visible) {
+        section.scrollIntoView({ behavior: "instant" });
     }
-}
+});
 
 let lastScrollY = window.scrollY;
 let scrollingDown = true;
-window.addEventListener("scroll", () => {
-    const currentScrollY = window.scrollY;
-    scrollingDown = currentScrollY > lastScrollY;
-    lastScrollY = currentScrollY;
+window.addEventListener(
+    "scroll",
+    () => {
+        const currentScrollY = window.scrollY;
+        scrollingDown = currentScrollY > lastScrollY;
+        lastScrollY = currentScrollY;
 
-    checkTerminalReentry();
-    if (!ticking) {
-        window.requestAnimationFrame( update );
-        ticking = true;
-    }
-},
-{
-    passive: true
-});
+        observer.observe(terminal);
+        if (!ticking) {
+            window.requestAnimationFrame(update);
+            ticking = true;
+        }
+    },
+    {
+        passive: true,
+    },
+);
 
 update();
