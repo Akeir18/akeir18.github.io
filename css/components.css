@@ -7,6 +7,7 @@ footer#footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 
     a {
         color: var(--text-secondary);
@@ -14,7 +15,6 @@ footer#footer {
 }
 
 header#header {
-    width: 100%;
     z-index: 999;
     height: var(--header-height);
     top: 0px;
