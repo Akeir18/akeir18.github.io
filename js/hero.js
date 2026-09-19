@@ -177,6 +177,12 @@ window.addEventListener(
         scrollingDown = currentScrollY > lastScrollY;
         lastScrollY = currentScrollY;
 
+        if (currentScrollY > 0) {
+            document.getElementById("instructions").style.display = "none";
+        } else {
+            document.getElementById("instructions").style.display = "inherit";
+        }
+
         observer.observe(terminal);
         if (!ticking) {
             window.requestAnimationFrame(update);

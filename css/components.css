@@ -76,6 +76,22 @@ footer#footer {
     font-size: var(--quote-font-size);
 }
 
+#instructions {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    color: white;
+    text-align: center;
+    animation: down 1s infinite;
+    opacity: 0.5;
+}
+
+@keyframes down {
+    50% {
+        translate: 0 var(--gap);
+    }
+}
+
 .terminal-section {
     padding: 0;
     height: 450vh;
