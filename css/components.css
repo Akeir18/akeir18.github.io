@@ -104,8 +104,8 @@ footer#footer {
 }
 
 .terminal {
-    width: min(900px, 100%);
-    height: 70vh;
+    width: 100%;
+    height: calc(90vh - var(--header-height) - var(--footer-height));
     padding: 0;
     background: #111114;
     border: 1px solid #242429;
